@@ -126,6 +126,17 @@ h1, h2, h3, h4 {
   color: var(--primary);
 }
 
+.verified-badge {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  margin-left: 8px;
+  position: relative;
+  top: -2px;
+  filter: hue-rotate(-7deg) saturate(1.15) brightness(1.14);
+}
+
 .section-title-light { color: var(--white); }
 .section-title-light em { color: var(--primary); }
 
@@ -215,14 +226,14 @@ h1, h2, h3, h4 {
   right: 0;
   z-index: 1000;
   height: var(--nav-h);
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  background: #0f1316;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.3);
   transition: box-shadow 0.3s var(--ease);
 }
 
 .navbar.scrolled {
-  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
 }
 
 .nav-container {
@@ -263,7 +274,7 @@ h1, h2, h3, h4 {
 .nav-link {
   font-size: 17px;
   font-weight: 600;
-  color: var(--text-2);
+  color: rgba(255,255,255,0.7);
   padding: 10px 20px;
   border-radius: 8px;
   transition: color 0.2s, background 0.2s;
@@ -283,10 +294,10 @@ h1, h2, h3, h4 {
   transition: transform 0.25s var(--ease-spring);
 }
 
-.nav-link:hover { color: var(--text); }
+.nav-link:hover { color: #fff; }
 .nav-link:hover::after,
 .nav-link.active::after { transform: translateX(-50%) scaleX(1); }
-.nav-link.active { color: var(--text); }
+.nav-link.active { color: #fff; }
 
 .nav-link.nav-cta {
   background: var(--primary);
@@ -315,7 +326,7 @@ h1, h2, h3, h4 {
   display: block;
   width: 100%;
   height: 2px;
-  background: var(--text);
+  background: #fff;
   border-radius: 2px;
   transition: transform 0.3s var(--ease), opacity 0.3s, width 0.3s;
   transform-origin: center;
@@ -1564,9 +1575,9 @@ h1, h2, h3, h4 {
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--white);
-    border-top: 1px solid var(--border);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+    background: #0d1117;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
     flex-direction: column;
     align-items: stretch;
     padding: 0 16px;
