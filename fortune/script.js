@@ -337,7 +337,7 @@
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   const heroContent = document.querySelector('.hero-content');
-  const heroBgImage = document.querySelector('.hero-bg-image');
+  const heroBgImage = document.querySelector('.hero-bg-video');
 
   function heroParallax() {
     const scrollY = window.scrollY;
