@@ -19,12 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
         navToggle.addEventListener('click', () => {
             navToggle.classList.toggle('active');
             mobileMenu.classList.toggle('open');
+            navbar.classList.toggle('menu-open');
         });
 
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navToggle.classList.remove('active');
                 mobileMenu.classList.remove('open');
+                navbar.classList.remove('menu-open');
             });
         });
     }
