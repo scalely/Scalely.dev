@@ -173,7 +173,8 @@ h1, h2, h3, h4 {
     border-bottom: 1px solid transparent;
 }
 
-.navbar.scrolled {
+.navbar.scrolled,
+.navbar.menu-open {
     background: rgba(11, 15, 20, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -263,7 +264,7 @@ h1, h2, h3, h4 {
 
 .navbar__mobile {
     display: none;
-    padding: 0 24px 24px;
+    padding: 16px 24px 24px;
 }
 
 .navbar__mobile.open {
@@ -285,6 +286,12 @@ h1, h2, h3, h4 {
 
 .navbar__mobile-links a:hover {
     color: var(--text-primary);
+}
+
+.navbar__mobile-links .btn {
+    font-size: 12px;
+    color: #fff;
+    padding: 10px 20px;
 }
 
 .hero {
