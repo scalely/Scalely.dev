@@ -196,6 +196,7 @@ h1, h2, h3, h4 {
 .navbar__links {
     display: flex;
     gap: 36px;
+    margin-left: 80px;
 }
 
 .navbar__links a {
