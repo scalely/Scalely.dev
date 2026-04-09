@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing | Scalely</title>
-    <meta name="description" content="Scalely pricing for custom website design and development in Australia.">
+    <title>Pricing — Scalely</title>
+    <meta name="description" content="Simple, transparent pricing for high-converting custom websites by Scalely. Choose the tier that fits your business.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -156,10 +156,19 @@
             white-space: nowrap;
         }
 
+        .pricing__tier {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
         .pricing__name {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 700;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             color: var(--text-primary);
         }
 
@@ -306,8 +315,8 @@
     <section class="pricing-hero">
         <div class="container pricing-hero__inner">
             <span class="section-tag">Pricing</span>
-            <h1 class="pricing-hero__title">Our <span class="text-glow">Pricing</span></h1>
-            <p class="pricing-hero__subtitle">Three plans. Pick the one that fits your business.</p>
+            <h1 class="pricing-hero__title">Simple, Transparent <span class="text-glow">Pricing.</span></h1>
+            <p class="pricing-hero__subtitle">Pick the tier that fits your business. Every plan is 100% custom built, mobile-ready, and designed to convert.</p>
         </div>
     </section>
 
@@ -316,7 +325,8 @@
             <div class="pricing__grid">
 
                 <div class="pricing__card" data-animate>
-                    <h3 class="pricing__name">Beginner</h3>
+                    <span class="pricing__tier">Beginner</span>
+                    <h3 class="pricing__name">Starter</h3>
                     <div class="pricing__price">
                         <span class="pricing__price-currency">$</span>
                         <span class="pricing__price-amount">500</span>
@@ -324,15 +334,27 @@
                     </div>
                     <p class="pricing__price-note">One-time payment</p>
                     <div class="pricing__divider"></div>
-                    <p class="pricing__desc">You just get the source code. No help with hosting, no further support.</p>
+                    <p class="pricing__desc">Perfect for DIYers and developers who just want the build. You get the full, hand-crafted source code delivered — nothing more, nothing less.</p>
                     <div class="pricing__features">
                         <div class="pricing__feature">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-                            <span>Full website source code</span>
+                            <span>Full custom website source code</span>
                         </div>
                         <div class="pricing__feature">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-                            <span>Host it yourself</span>
+                            <span>Mobile-first responsive design</span>
+                        </div>
+                        <div class="pricing__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>One-time handoff — host it yourself</span>
+                        </div>
+                        <div class="pricing__feature" style="color: var(--text-muted);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--text-muted);"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                            <span>No hosting included</span>
+                        </div>
+                        <div class="pricing__feature" style="color: var(--text-muted);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--text-muted);"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                            <span>No ongoing support</span>
                         </div>
                     </div>
                     <a href="#" class="btn btn--outline pricing__cta js-open-quote">Get Started</a>
@@ -340,7 +362,8 @@
 
                 <div class="pricing__card pricing__card--featured" data-animate>
                     <span class="pricing__badge">Most Popular</span>
-                    <h3 class="pricing__name">Advanced</h3>
+                    <span class="pricing__tier">Advanced</span>
+                    <h3 class="pricing__name">Growth</h3>
                     <div class="pricing__price">
                         <span class="pricing__price-currency">$</span>
                         <span class="pricing__price-amount">750</span>
@@ -348,19 +371,27 @@
                     </div>
                     <p class="pricing__price-note">One-time payment</p>
                     <div class="pricing__divider"></div>
-                    <p class="pricing__desc">You get the source code, we host it for you, and a good amount of support from us.</p>
+                    <p class="pricing__desc">The sweet spot for most businesses. Get the full source code, we host it for you, and you get solid ongoing support from our team.</p>
                     <div class="pricing__features">
                         <div class="pricing__feature">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-                            <span>Full website source code</span>
+                            <span>Full custom website source code</span>
                         </div>
                         <div class="pricing__feature">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-                            <span>Hosted by us</span>
+                            <span>Hosted by us — no setup required</span>
                         </div>
                         <div class="pricing__feature">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-                            <span>Good amount of support</span>
+                            <span>Solid ongoing support from our team</span>
+                        </div>
+                        <div class="pricing__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>SSL, backups & security updates</span>
+                        </div>
+                        <div class="pricing__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Mobile-first responsive design</span>
                         </div>
                     </div>
                     <a href="#" class="btn btn--primary pricing__cta js-open-quote">Get Started</a>
