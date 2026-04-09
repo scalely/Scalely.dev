@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | Scalely</title>
+    <meta name="description" content="Scalely pricing for custom website design and development in Australia.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" type="image/png" href="/assets/images/logo-white.png">
+    <style>
+        .pricing-page {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-page__bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .pricing-page__gradient {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.4;
+        }
+
+        .pricing-page__gradient--1 {
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, var(--accent-dark), transparent 70%);
+            top: -220px;
+            left: -180px;
+            animation: float1 14s ease-in-out infinite;
+        }
+
+        .pricing-page__gradient--2 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #1a3a5c, transparent 70%);
+            top: -120px;
+            right: -180px;
+            animation: float2 16s ease-in-out infinite;
+        }
+
+        .pricing-page__gradient--3 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(56, 189, 198, 0.35), transparent 70%);
+            top: 45%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.25;
+            animation: float3 12s ease-in-out infinite;
+        }
+
+        .pricing-page__gradient--4 {
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, #1a3a5c, transparent 70%);
+            bottom: -200px;
+            right: -150px;
+            opacity: 0.3;
+            animation: float1 18s ease-in-out infinite;
+        }
+
+        .pricing-hero {
+            position: relative;
+            padding: 180px 0 80px;
+            text-align: center;
+        }
+
+        .pricing-hero__inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-hero__title {
+            font-size: clamp(40px, 6vw, 64px);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .pricing-hero__subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .pricing {
+            padding: 40px 0 120px;
+            position: relative;
+        }
+
+        .pricing__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            align-items: stretch;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pricing__card {
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .pricing__card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(56, 189, 198, 0.25);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .pricing__card--featured {
+            background: linear-gradient(160deg, rgba(56, 189, 198, 0.08), rgba(15, 22, 32, 0.8));
+            border-color: rgba(56, 189, 198, 0.35);
+            box-shadow: 0 0 40px rgba(56, 189, 198, 0.15), 0 20px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(-8px);
+        }
+
+        .pricing__card--featured:hover {
+            transform: translateY(-14px);
+            box-shadow: 0 0 50px rgba(56, 189, 198, 0.25), 0 24px 48px rgba(0, 0, 0, 0.5);
+        }
+
+        .pricing__badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-accent);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 8px 18px;
+            border-radius: 100px;
+            box-shadow: 0 0 20px var(--accent-glow-strong);
+            white-space: nowrap;
+        }
+
+        .pricing__name {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: var(--text-primary);
+        }
+
+        .pricing__price {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .pricing__price-amount {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .pricing__price-currency {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .pricing__price-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+
+        .pricing__divider {
+            height: 1px;
+            background: var(--border-subtle);
+            margin-bottom: 28px;
+        }
+
+        .pricing__desc {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .pricing__features {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 36px;
+            flex-grow: 1;
+        }
+
+        .pricing__feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .pricing__feature svg {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            color: var(--accent);
+            margin-top: 2px;
+        }
+
+        .pricing__cta {
+            width: 100%;
+            justify-content: center;
+        }
+
+        @media (max-width: 900px) {
+            .pricing__grid {
+                grid-template-columns: 1fr;
+                max-width: 460px;
+            }
+
+            .pricing__card--featured {
+                transform: none;
+            }
+
+            .pricing__card--featured:hover {
+                transform: translateY(-6px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .pricing-hero {
+                padding: 140px 0 60px;
+            }
+
+            .pricing {
+                padding: 20px 0 80px;
+            }
+
+            .pricing__card {
+                padding: 36px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container navbar__inner">
+            <a href="/" class="navbar__logo">
+                <img src="/assets/images/logo-white.png" alt="Scalely" class="navbar__logo-img">
+            </a>
+            <ul class="navbar__links">
+                <li><a href="/#portfolio">Work</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#why-scalely">Why Us</a></li>
+                <li><a href="/#process">Process</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
+            </ul>
+            <a href="#" class="btn btn--primary navbar__cta js-open-quote">Get a Free Quote</a>
+            <button class="navbar__toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="navbar__mobile" id="mobileMenu">
+            <ul class="navbar__mobile-links">
+                <li><a href="/#portfolio">Work</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#why-scalely">Why Us</a></li>
+                <li><a href="/#process">Process</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li><a href="#" class="btn btn--primary js-open-quote">Get Quote</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="pricing-page">
+        <div class="pricing-page__bg">
+            <div class="pricing-page__gradient pricing-page__gradient--1"></div>
+            <div class="pricing-page__gradient pricing-page__gradient--2"></div>
+            <div class="pricing-page__gradient pricing-page__gradient--3"></div>
+            <div class="pricing-page__gradient pricing-page__gradient--4"></div>
+        </div>
+
+    <section class="pricing-hero">
+        <div class="container pricing-hero__inner">
+            <span class="section-tag">Pricing</span>
+            <h1 class="pricing-hero__title">Our <span class="text-glow">Pricing</span></h1>
+            <p class="pricing-hero__subtitle">Three plans. Pick the one that fits your business.</p>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <div class="pricing__grid">
+
+                <div class="pricing__card" data-animate>
+                    <h3 class="pricing__name">Beginner</h3>
+                    <div class="pricing__price">
+                        <span class="pricing__price-currency">$</span>
+                        <span class="pricing__price-amount">500</span>
+                        <span class="pricing__price-currency">AUD</span>
+                    </div>
+                    <p class="pricing__price-note">One-time payment</p>
+                    <div class="pricing__divider"></div>
+                    <p class="pricing__desc">You just get the source code. No help with hosting, no further support.</p>
+                    <div class="pricing__features">
+                        <div class="pricing__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Full website source code</span>
+                        </div>
+                        <div class="pricing__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Host it yourself</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn--outline pricing__cta js-open-quote">Get Started</a>
+                </div>
+
+                <div class="pricing__card pricing__card--featured" data-animate>
+                    <span class="pricing__badge">Most Popular</span>
+                    <h3 class="pricing__name">Advanced</h3>
+                    <div class="pricing__price">
+                        <span class="pricing__price-currency">$</span>
+                        <span class="pricing__price-amount">750</span>
+                        <span class="pricing__price-currency">AUD</span>
+                    </div>
+                    <p class="pricing__price-note">One-time payment</p>
+                    <div class="pricing__divider"></div>
+                    <p class="pricing__desc">You get the source code, we host it for you, and a good amount of support from us.</p>
+                    <div class="pricing__features">
+                        <div class="pricing__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Full website source code</span>
+                        </div>
+                        <div class="pricing__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Hosted by us</span>
+                        </div>
+                        <div class="pricing__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Good amount of support</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn--primary pricing__cta js-open-quote">Get Started</a>
+                </div>
+
+                <div class="pricing__card" data-animate>
+                    <span class="pricing__tier">Enterprise</span>
+                    <h3 class="pricing__name">Scale</h3>
+                    <div class="pricing__price">
+                        <span class="pricing__price-currency">$</span>
+                        <span class="pricing__price-amount">1250</span>
+                        <span class="pricing__price-currency">AUD</span>
+                    </div>
+                    <p class="pricing__price-note">One-time payment</p>
+                    <div class="pricing__divider"></div>
+                    <p class="pricing__desc">Everything we offer, forever. Full source, hosting, form handling, and a dedicated team on-call whenever you need us.</p>
+                    <div class="pricing__features">
+                        <div class="pricing__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Full custom website source code</span>
+                        </div>
+                        <div class="pricing__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Premium hosting included</span>
+                        </div>
+                        <div class="pricing__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Form hosting & lead management</span>
+                        </div>
+                        <div class="pricing__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Lifetime support</span>
+                        </div>
+                        <div class="pricing__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>24/7 customer service</span>
+                        </div>
+                        <div class="pricing__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Lifetime edits & revisions</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn--outline pricing__cta js-open-quote">Get Started</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <section class="cta" id="contact">
+        <div class="cta__bg">
+            <div class="cta__gradient cta__gradient--1"></div>
+            <div class="cta__gradient cta__gradient--2"></div>
+        </div>
+        <div class="container cta__inner">
+            <h2 class="cta__title">Not Sure Which<br>Plan Is Right for You?</h2>
+            <p class="cta__subtitle">Reach out and we'll help you pick the perfect fit for your business.</p>
+            <div class="cta__buttons">
+                <a href="#" class="btn btn--primary btn--lg js-open-quote">Get a Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <img src="/assets/images/logo-white.png" alt="Scalely" class="footer__logo">
+                <p>Websites that actually grow your business.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__col">
+                    <h4>Navigation</h4>
+                    <a href="/#portfolio">Work</a>
+                    <a href="/#services">Services</a>
+                    <a href="/#why-scalely">Why Us</a>
+                    <a href="/#process">Process</a>
+                    <a href="/pricing/">Pricing</a>
+                </div>
+                <div class="footer__col">
+                    <h4>Contact</h4>
+                    <a href="mailto:scalelycontact@gmail.com">scalelycontact@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer__bottom">
+            <p>&copy; 2026 Scalely. All rights reserved.</p>
+            <p>Designed & built in Australia. ABN 45 622 110 343</p>
+        </div>
+    </footer>
+
+    <div class="modal" id="quoteModal">
+        <div class="modal__backdrop" id="modalBackdrop"></div>
+        <div class="modal__card">
+            <button class="modal__close" id="modalClose" aria-label="Close modal">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6L6 18"/><path d="M6 6l12 12"/>
+                </svg>
+            </button>
+            <div class="modal__icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                </svg>
+            </div>
+            <h3 class="modal__title">Get in Touch</h3>
+            <p class="modal__text">For any quotes, questions, or project enquiries — reach out to us directly via email:</p>
+            <a href="mailto:scalelycontact@gmail.com" class="modal__email">scalelycontact@gmail.com</a>
+            <p class="modal__subtext">We typically respond within 24 hours.</p>
+        </div>
+    </div>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
